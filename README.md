@@ -42,3 +42,24 @@ aws ecs delete-cluster --cluster deepdive
 ```
 aws s3api create-bucket --bucket sreejithgp_deepdive
 ```
+```
+aws s3 cp ecs.config s3://sreejithgp_deepdive/ecs.config
+```
+```
+aws s3 ls s3://sreejithgp_deepdive
+```
+```
+aws ec2 run-instances --image-id ami-2b3b6041 --count 1 --instance-type t2.micro --iam-instance-profile Name=ecsInstanceRole --key-name aws-sreejith --security-group-id sg-324234 --user-data file://copy-ecs-config-to-s3
+```
+```
+aws ec2 describe-instance-status --instance-id i-234234
+```
+```
+aws ecs list-container-instances --cluster deepdive
+```
+```
+aws ecs describe-container-instances --cluster deepdive --container-instances container-instance-arms-value
+```
+```
+aws ec2 terminate-instances --instance-ids i-324234
+```
